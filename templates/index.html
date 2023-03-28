@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Car Claim Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Car Claim Prediction</h1>
+        <p>Welcome to our Car Claim Prediction web application. Please click the button below to proceed to the prediction page:</p>
+        <a href="{{ url_for('process_prediction') }}" class="button">Predict Now</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Car Claim Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Car Claim Prediction</h1>
+        <form action="{{ url_for('process_prediction') }}" method="POST" enctype="multipart/form-data">
+            <label for="input_file">Upload your input csv file that you want to test</label>
+            <input type="file" name="input_file" id="input_file">
+            <input type="submit" value="Predict">
+        </form>
+        {% if download_link %}
+            {{ download_link | safe }}
+        {% endif %}
+    </div>
+</body>
+</html>
