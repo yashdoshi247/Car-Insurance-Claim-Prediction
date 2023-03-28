@@ -3,15 +3,15 @@ import pandas as pd
 
 from src.pipeline.predicition_pipeline import PredictPipeline
 
-app = Flask(__name__)
+application = Flask(__name__)
 
 # Define route for home page
-@app.route('/')
+@application.route('/')
 def index():
     return render_template('index.html')
 
 # Define route for predict data page
-@app.route('/process_prediction', methods=['GET', 'POST'])
+@application.route('/process_prediction', methods=['GET', 'POST'])
 def process_prediction():
     if request.method == 'POST':
         # Get file from input form
@@ -32,7 +32,7 @@ def process_prediction():
         return render_template("predict.html", download_link=download_link)
     return render_template("predict.html")
 
-@app.route("/download_file/<filename>")
+@application.route("/download_file/<filename>")
 def download_file(filename):
     return Response(
         filename,
@@ -41,4 +41,4 @@ def download_file(filename):
                  "attachment; filename=predictions.csv"})
 
 if __name__ == '__main__':
-    app.run()
+    application.run()
